@@ -118,9 +118,6 @@ while running:
             jump = True
             jumpCount = 0
 
-    if keys[pygame.K_DOWN]:
-        jumper.y = Height-jumper.size+20
-
     if jump and jumpCount < 12.5:
         y = int(60 * jumpCount - 0.5 * 10 * (jumpCount ** 2))
         jumper.y = Height - jumper.size - y
@@ -173,6 +170,11 @@ while running:
                         jump = False
                         jumpCount = 0
                         jumper.y = Height - jumper.size
+            
+
+                if e.type == pygame.QUIT:
+                    pygame.quit()
+                    exit()
 
     running2 = True
     window.fill(bg_color)
